@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "48932124692",
+    "project_id": "cigp-notes",
+    "storage_bucket": "cigp-notes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48932124692:android:6ad5dc65d2d45580de8f01",
+        "android_client_info": {
+          "package_name": "com.cigpbubu.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48932124692-phq4so3fsgi7jpujpjh19pr30j08htp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV3u4NOislxg2tTQkXB-80QZoXTSkNZkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48932124692-phq4so3fsgi7jpujpjh19pr30j08htp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

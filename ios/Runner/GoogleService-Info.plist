@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>48932124692-ph6eeea8ohbc3349ngd2qnl88u50es49.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.48932124692-ph6eeea8ohbc3349ngd2qnl88u50es49</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC7JknsjXO-RL8L8IuKKXw6uYFzGiizVMg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>48932124692</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.cigpbubu.mynotes</string>
+	<key>PROJECT_ID</key>
+	<string>cigp-notes</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cigp-notes.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:48932124692:ios:159f6386bfef224fde8f01</string>
+</dict>
+</plist>
