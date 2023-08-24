@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as devtools show log;
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});
@@ -63,16 +64,17 @@ class _RegisterViewState extends State<RegisterView> {
                   email: email,
                   password: password,
                 );
-                print(userCredential);
+                devtools.log(userCredential.toString());
               } on FirebaseAuthException catch (e) {
                 if (e.code == 'email-already-in-use') {
-                  print("Địa chỉ email đã được sử dụng");
+                  devtools.log("Địa chỉ email đã được sử dụng");
                 } else if (e.code == 'weak-password') {
-                  print('Mật khẩu yếu, vui lòng nhập mật khẩu mới mạnh hơn');
+                  devtools
+                      .log('Mật khẩu yếu, vui lòng nhập mật khẩu mới mạnh hơn');
                 } else if (e.code == 'invalid-email') {
-                  print("Vui lòng nhập một địa chỉ email chính xác");
+                  devtools.log("Vui lòng nhập một địa chỉ email chính xác");
                 } else {
-                  print(e.code);
+                  devtools.log(e.code);
                 }
               }
             },

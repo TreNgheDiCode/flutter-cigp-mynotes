@@ -13,13 +13,14 @@ void main() {
   runApp(MaterialApp(
     title: 'CIGP Notes App',
     theme: ThemeData(
-      colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+      colorSchemeSeed: Colors.blue,
       useMaterial3: true,
     ),
     home: const HomePage(),
     routes: {
       '/login/': (context) => const LoginView(),
       '/register/': (context) => const RegisterView(),
+      '/notes/': (context) => const NotesView(),
     },
   ));
 }
