@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                 return const Text("Hoàn thành");
               }
             default:
-              return const Text("Đang kết nối...");
+              return const Text("Đang kết nối.....");
           }
         },
       ),
