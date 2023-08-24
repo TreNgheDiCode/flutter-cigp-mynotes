@@ -19,7 +19,7 @@ void main() {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const LoginView(),
+      home: const HomePage(),
     ));
 
     // Verify that our counter starts at 0.
