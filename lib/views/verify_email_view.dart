@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:mynotes/constants/routes.dart';
 
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({super.key});
@@ -18,13 +19,26 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
       ),
       body: Column(
         children: [
-          const Text('Vui lòng xác thực email của bạn'),
+          const Text('Xin vui lòng kiểm tra hòm thư để xác thực email của bạn'),
+          const Text(
+              'Trong trường hợp chưa nhận được email, xin vui lòng nhấn nút gửi lại bên dưới'),
           TextButton(
             onPressed: () async {
               final user = FirebaseAuth.instance.currentUser;
               await user?.sendEmailVerification();
             },
-            child: const Text('Gửi email xác nhận'),
+            child: const Text('Gửi lại email xác nhận'),
+          ),
+          TextButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+              if (!mounted) return;
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                loginRoute,
+                (route) => false,
+              );
+            },
+            child: const Text('Quay về trang đăng nhập'),
           )
         ],
       ),
