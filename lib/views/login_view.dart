@@ -5,6 +5,7 @@ import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
+import 'package:mynotes/services/auth/bloc/auth_state.dart';
 import 'package:mynotes/utilities/dialogs/error_dialog.dart';
 
 class LoginView extends StatefulWidget {
@@ -59,33 +60,30 @@ class _LoginViewState extends State<LoginView> {
               hintText: "Nhập mật khẩu của bạn",
             ),
           ),
-          TextButton(
-            onPressed: () async {
-              final email = _email.text;
-              final password = _password.text;
-              try {
-                context.read<AuthBloc>().add(AuthEventLoggedIn(
-                      email,
-                      password,
-                    ));
-              } on UserNotFoundAuthException {
-                await showErrorDialog(
-                  context,
-                  'Người dùng không tồn tại trong hệ thống',
-                );
-              } on WrongPasswordAuthException {
-                await showErrorDialog(
-                  context,
-                  'Sai tài khoản hoặc mật khẩu',
-                );
-              } on GenericAuthException {
-                await showErrorDialog(
-                  context,
-                  'Lỗi đăng nhập',
-                );
+          BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) async {
+              if (state is AuthStateLoggedOut) {
+                if (state.exception is UserNotFoundAuthException) {
+                  await showErrorDialog(context, 'Người dùng không tồn tại');
+                } else if (state.exception is WrongPasswordAuthException) {
+                  await showErrorDialog(
+                      context, 'Thông tin đăng nhập không chính xác');
+                } else if (state.exception is GenericAuthException) {
+                  await showErrorDialog(context, 'Lỗi đăng nhập');
+                }
               }
             },
-            child: const Text('Đăng nhập'),
+            child: TextButton(
+              onPressed: () async {
+                final email = _email.text;
+                final password = _password.text;
+                context.read<AuthBloc>().add(AuthEventLoggedIn(
+                        email,
+                        password,
+                      ));
+              },
+              child: const Text('Đăng nhập'),
+            ),
           ),
           TextButton(
             onPressed: () {
