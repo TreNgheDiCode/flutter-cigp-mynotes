@@ -54,48 +54,68 @@ class _RegisterViewState extends State<RegisterView> {
           title: const Text('Đăng ký'),
           backgroundColor: Colors.blue,
         ),
-        body: Column(
-          children: [
-            TextField(
-              controller: _email,
-              enableSuggestions: false,
-              autocorrect: false,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                hintText: "Nhập email của bạn",
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Email đăng nhập',
+                    textAlign: TextAlign.start,
+                  ),
+                  TextField(
+                    controller: _email,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    autofocus: true,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: const InputDecoration(
+                      hintText: "Nhập email của bạn",
+                    ),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 16.0, 0, 0),
+                    child: Text(
+                      'Mật khẩu',
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  TextField(
+                    controller: _password,
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
+                    decoration: const InputDecoration(
+                      hintText: "Nhập mật khẩu của bạn",
+                    ),
+                  ),
+                ],
               ),
-            ),
-            TextField(
-              controller: _password,
-              obscureText: true,
-              enableSuggestions: false,
-              autocorrect: false,
-              decoration: const InputDecoration(
-                hintText: "Nhập mật khẩu của bạn",
+              TextButton(
+                onPressed: () async {
+                  final email = _email.text;
+                  final password = _password.text;
+                  context.read<AuthBloc>().add(
+                        AuthEventRegister(
+                          email,
+                          password,
+                        ),
+                      );
+                },
+                child: const Text('Đăng ký'),
               ),
-            ),
-            TextButton(
-              onPressed: () async {
-                final email = _email.text;
-                final password = _password.text;
-                context.read<AuthBloc>().add(
-                      AuthEventRegister(
-                        email,
-                        password,
-                      ),
-                    );
-              },
-              child: const Text('Đăng ký'),
-            ),
-            TextButton(
-              onPressed: () {
-                context.read<AuthBloc>().add(
-                      const AuthEventLoggedOut(),
-                    );
-              },
-              child: const Text('Đã có tài khoản? Đăng nhập tại đây!'),
-            )
-          ],
+              TextButton(
+                onPressed: () {
+                  context.read<AuthBloc>().add(
+                        const AuthEventLoggedOut(),
+                      );
+                },
+                child: const Text('Đã có tài khoản? Đăng nhập tại đây!'),
+              )
+            ],
+          ),
         ),
       ),
     );

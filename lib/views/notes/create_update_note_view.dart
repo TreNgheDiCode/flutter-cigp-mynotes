@@ -116,6 +116,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
             case ConnectionState.done:
               _setupTextControllerListener();
               return TextField(
+                autofocus: true,
                 controller: _textController,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
