@@ -19,6 +19,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
     title: 'CIGP Notes App',
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       colorSchemeSeed: Colors.blue,
       useMaterial3: true,
