@@ -60,35 +60,37 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              const Text(
-                  'Vui lòng cung cấp email của bạn để chúng tôi gửi một đường dẫn qua hộp thư email khôi phục mật khẩu của bạn'),
-              TextField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                autofocus: true,
-                controller: _controller,
-                decoration: const InputDecoration(hintText: 'Địa chỉ email...'),
-              ),
-              TextButton(
-                onPressed: () {
-                  final email = _controller.text;
-                  context.read<AuthBloc>().add(
-                        AuthEventForgotPassword(email: email),
-                      );
-                },
-                child: const Text('Gửi đường dẫn khôi phục mật khẩu'),
-              ),
-              TextButton(
-                onPressed: () {
-                  context.read<AuthBloc>().add(
-                        const AuthEventLoggedOut(),
-                      );
-                },
-                child: const Text('Quay về trang đăng nhập'),
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Text(
+                    'Vui lòng cung cấp email của bạn để chúng tôi gửi một đường dẫn qua hộp thư email khôi phục mật khẩu của bạn'),
+                TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  autocorrect: false,
+                  autofocus: true,
+                  controller: _controller,
+                  decoration: const InputDecoration(hintText: 'Địa chỉ email...'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    final email = _controller.text;
+                    context.read<AuthBloc>().add(
+                          AuthEventForgotPassword(email: email),
+                        );
+                  },
+                  child: const Text('Gửi đường dẫn khôi phục mật khẩu'),
+                ),
+                TextButton(
+                  onPressed: () {
+                    context.read<AuthBloc>().add(
+                          const AuthEventLoggedOut(),
+                        );
+                  },
+                  child: const Text('Quay về trang đăng nhập'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
