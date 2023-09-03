@@ -1,0 +1,61 @@
+{
+  "my_title": "Tiêu đề của tôi (VIE)",
+  "logout_button": "Đăng xuất",
+  "note": "Ghi chú",
+  "cancel": "Quay lại",
+  "yes": "Đồng ý",
+  "delete": "Xóa",
+  "sharing": "Chia sẻ",
+  "ok": "Đồng ý",
+  "login": "Đăng nhập",
+  "verify_email": "Xác thực email",
+  "register": "Đăng ký",
+  "restart": "Khởi động lại",
+
+  "start_typing_your_note": "Nhập nội dung cho ghi chú của bạn...",
+  "delete_note_prompt": "Bạn có chắc chắn muốn xóa ghi chú này không?",
+  "cannot_share_empty_note_prompt": "Không thể chia sẻ ghi chú, hãy nhập vài kí tự trước khi chia sẻ!",
+  "generic_error_prompt": "Lỗi bất ngờ đã xảy ra",
+  "logout_dialog_prompt": "Bạn có chắc chắn muốn đăng xuất không?",
+
+  "password_reset": "Khôi phục lại mật khẩu",
+  "password_reset_dialog_prompt": "Chúng tôi đã gửi một đường dẫn khôi phục mật khẩu cho bạn. Vui lòng kiểm tra hộp thư email để biết thêm thông tin.",
+
+  "login_error_cannot_find_user": "Không thể tìm thấy người dùng với thông tin tài khoản được cung cấp!",
+  "login_error_wrong_credentials": "Sai thông tin đăng nhập",
+  "login_error_auth_error": "Lỗi đăng nhập",
+
+  "login_view_prompt": "Vui lòng đăng nhập vào tài khoản của bạn để thực hiện thao tác với các ghi chú!",
+  
+  "login_view_forgot_password": "Quên mật khẩu",
+  "login_view_not_registered_yet": "Chưa có tài khoản? Đăng kí ngay!",
+
+  "email_text_field_placeholder": "Nhập email của bạn tại đây",
+  "password_text_field_placeholder": "Nhập mật khẩu của bạn tại đây",
+  
+  "forgot_password": "Quên mật khẩu",
+  "forgot_password_view_generic_error": "Không thể thực hiện yêu cầu. Vui lòng xác nhận rằng bạn đã đăng ký, nếu chưa, vui lòng đăng ký một tài khoản mới.",
+  "forgot_password_view_prompt": "Trong trường hợp bạn không nhớ mật khẩu cho tài khoản của mình, hãy cung cấp chúng tôi địa chỉ email chính xác để chúng tôi cung cấp đường dẫn khôi phục mật khẩu.",
+  "forgot_password_view_send_me_link": "Gửi lại đường dẫn",
+  "forgot_password_view_back_to_login": "Quay về trang đăng nhập",
+
+  "register_error_weak_password": "Mật khẩu không đủ mạnh để bảo mật. Vui lòng nhập lại một mật khẩu khác!",
+  "register_error_email_already_in_use": "Đã có tài khoản sử dụng địa chỉ email này. Vui lòng chọn một địa chỉ email khác!",
+  "register_error_generic": "Đăng ký thất bại. Vui lòng thử lại trong giây lát!",
+  "register_error_invalid_email": "The email address you entered appears to be invalid. Please try another email address!",
+  "register_view_prompt": "Enter your email and password to see your notes!",
+  "register_view_already_registered": "Already registered? Login here!",
+
+  "verify_email_view_prompt": "We've sent you an email verification. Please open it to verify your account. If you haven't received a verification email yet, press the button below!",
+  "verify_email_send_email_verification": "Send email verification",
+
+  "notes_title": "{count, plural, =0{No notes yet} =1{1 note} other{{count} notes}}",
+  "@notes_title": {
+      "placeholders": {
+          "count": {
+              "type": "int",
+              "example": "3 notes"
+          }
+      }
+  }
+}
