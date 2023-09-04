@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:mynotes/extensions/buildcontext/loc.dart';
 import 'package:mynotes/utilities/dialogs/generic_dialog.dart';
 
 Future<void> showPasswordResetSentDialog(BuildContext context) {
   return showGenericDialog<void>(
     context: context,
-    title: 'Quên mật khẩu',
+    title: context.loc.password_reset,
     content:
-        'Xin vui lòng kiểm tra và xác nhận đường dẫn được cung cấp tại hộp thư email của bạn.',
+        context.loc.password_reset_dialog_prompt,
     optionsBuilder: () => {
-      'Đồng ý': null,
+      context.loc.ok: null,
     },
   );
 }

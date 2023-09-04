@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mynotes/extensions/buildcontext/loc.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
 import 'package:mynotes/services/auth/bloc/auth_event.dart';
 
@@ -21,24 +22,22 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
-        title: const Text('Xác thực Email'),
+        title: Text(context.loc.verify_email),
         backgroundColor: Colors.blue,
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const Text(
-                  'Xin vui lòng kiểm tra hòm thư để xác thực email của bạn'),
-              const Text(
-                  'Trong trường hợp chưa nhận được email, xin vui lòng nhấn nút gửi lại bên dưới'),
+              Text(
+                  context.loc.verify_email_view_prompt),
               TextButton(
                 onPressed: () {
                   context.read<AuthBloc>().add(
                         const AuthEventSendEmailVerification(),
                       );
                 },
-                child: const Text('Gửi lại email xác nhận'),
+                child: Text(context.loc.verify_email_send_email_verification),
               ),
               TextButton(
                 onPressed: () async {
@@ -46,7 +45,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                         const AuthEventLoggedOut(),
                       );
                 },
-                child: const Text('Quay về trang đăng nhập'),
+                child: Text(context.loc.restart),
               )
             ],
           ),

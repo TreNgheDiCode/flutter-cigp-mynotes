@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mynotes/extensions/buildcontext/loc.dart';
 
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/bloc/auth_bloc.dart';
@@ -39,13 +40,13 @@ class _RegisterViewState extends State<RegisterView> {
         if (state is AuthStateRegistering) {
           if (state.exception is WeakPasswordAuthException) {
             await showErrorDialog(
-                context, 'Mật khẩu yếu, vui lòng nhập mật khẩu mới mạnh hơn');
+                context, context.loc.register_error_weak_password);
           } else if (state.exception is EmailAlreadyInUseAuthException) {
-            await showErrorDialog(context, 'Địa chỉ email đã được sử dụng');
+            await showErrorDialog(context, context.loc.register_error_email_already_in_use);
           } else if (state.exception is InvalidEmailAuthException) {
-            await showErrorDialog(context, 'Địa chỉ email không hợp lệ');
+            await showErrorDialog(context, context.loc.register_error_invalid_email);
           } else {
-            await showErrorDialog(context, 'Đăng ký thất bại');
+            await showErrorDialog(context, context.loc.register_error_generic);
           }
         }
       },
@@ -57,7 +58,7 @@ class _RegisterViewState extends State<RegisterView> {
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
-          title: const Text('Đăng ký'),
+          title: Text(context.loc.register),
           backgroundColor: Colors.blue,
         ),
         body: Padding(
@@ -68,8 +69,8 @@ class _RegisterViewState extends State<RegisterView> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'Email đăng nhập',
+                    Text(
+                      context.loc.email,
                       textAlign: TextAlign.start,
                     ),
                     TextField(
@@ -78,14 +79,14 @@ class _RegisterViewState extends State<RegisterView> {
                       autocorrect: false,
                       autofocus: true,
                       keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        hintText: "Nhập email của bạn",
+                      decoration: InputDecoration(
+                        hintText: context.loc.email_text_field_placeholder,
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(0, 16.0, 0, 0),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 16.0, 0, 0),
                       child: Text(
-                        'Mật khẩu',
+                        context.loc.password,
                         textAlign: TextAlign.start,
                       ),
                     ),
@@ -94,8 +95,8 @@ class _RegisterViewState extends State<RegisterView> {
                       obscureText: true,
                       enableSuggestions: false,
                       autocorrect: false,
-                      decoration: const InputDecoration(
-                        hintText: "Nhập mật khẩu của bạn",
+                      decoration: InputDecoration(
+                        hintText: context.loc.password_text_field_placeholder,
                       ),
                     ),
                   ],
@@ -111,7 +112,7 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                         );
                   },
-                  child: const Text('Đăng ký'),
+                  child: Text(context.loc.register),
                 ),
                 TextButton(
                   onPressed: () {
@@ -119,7 +120,7 @@ class _RegisterViewState extends State<RegisterView> {
                           const AuthEventLoggedOut(),
                         );
                   },
-                  child: const Text('Đã có tài khoản? Đăng nhập tại đây!'),
+                  child: Text(context.loc.register_view_already_registered),
                 )
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynotes/extensions/buildcontext/loc.dart';
 
 import 'package:mynotes/services/auth/auth_service.dart';
 import 'package:mynotes/services/cloud/cloud_note.dart';
@@ -93,7 +94,7 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tạo ghi chú mới'),
+        title: Text(context.loc.note),
         backgroundColor: Colors.blue,
         actions: [
           IconButton(
@@ -120,8 +121,8 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
                 controller: _textController,
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
-                decoration: const InputDecoration(
-                  hintText: 'Nhập nội dung cho ghi chú...',
+                decoration: InputDecoration(
+                  hintText: context.loc.start_typing_your_note,
                   border: InputBorder.none,
                 ),
               );
